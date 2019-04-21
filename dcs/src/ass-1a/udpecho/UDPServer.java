@@ -16,13 +16,45 @@ public class UDPServer {
 
 			while(true) {
 				sc.receive(receivePkt);
-				System.out.println("Received: " + new String(receivePkt.getData()));
-
-				DatagramPacket sendPkt = new DatagramPacket(receivePkt.getData(), receivePkt.getLength(), receivePkt.getAddress(), receivePkt.getPort());
-				sc.send(sendPkt);
+				Connection cn = new Connection(sc, receivePkt);
 			}
 		}
 		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+
+
+class Connection extends Thread {
+
+	DatagramSocket sc;
+	DatagramPacket receivePkt;
+
+	public Connection(DatagramSocket aSc, DatagramPacket aReceivePkt) {
+
+		try {
+
+			sc = aSc;
+			receivePkt = new DatagramPacket(aReceivePkt.getData(), aReceivePkt.getLength(), aReceivePkt.getAddress(), aReceivePkt.getPort());;
+			this.start();
+		}
+		catch(Exception e) {
+
+			System.out.println(e);
+		}
+	}
+
+	public void run() {
+
+		try {
+
+			System.out.println("Received: " + new String(receivePkt.getData()));
+			DatagramPacket sendPkt = new DatagramPacket(receivePkt.getData(), receivePkt.getLength(), receivePkt.getAddress(), receivePkt.getPort());
+			sc.send(sendPkt);
+		}
+		catch(Exception e) {
+
 			System.out.println(e);
 		}
 	}
