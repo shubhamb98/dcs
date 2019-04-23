@@ -1,0 +1,16 @@
+$ idlj -fall Interest.idl
+
+$ javac ./*.java
+
+$ orbd -ORBInitialPort 1050&
+
+$ java StartServer_Intrest -ORBInitialPort 1050 -ORBInitialHost localHost 
+
+
+
+
+
+
+
+
+$ java StartClient_intrest -ORBInitialPort 1050 -ORBInitialHost localHost

@@ -1,0 +1,15 @@
+module Bank
+{
+interface Account
+{
+float getBalance ();
+void setBalance (in float balance);
+};
+interface CheckingsAccount
+{
+void open(in string name);
+void create(in string name, in float balance);
+void credit(in string name, in float amount);
+void debit(in string name, in float amount);
+};
+};

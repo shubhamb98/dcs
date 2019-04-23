@@ -1,0 +1,9 @@
+module Interest {
+interface Rates
+{
+float getHomeLoan();
+float getPersonalLoan();
+float getCarLoan();
+float getGoldLoan();
+};
+};

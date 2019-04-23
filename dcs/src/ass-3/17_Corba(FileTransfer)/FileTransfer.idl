@@ -1,0 +1,10 @@
+module TransferApp
+ {
+  interface Transfer
+  {
+           
+    string transfer(in string file1);
+    boolean fileCreate(in string file);
+    oneway void shutdown();
+  };
+ };

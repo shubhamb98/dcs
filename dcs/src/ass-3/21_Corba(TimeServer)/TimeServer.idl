@@ -1,0 +1,5 @@
+module TimeApp{
+interface TimeServer{
+   string getTime();
+};
+};

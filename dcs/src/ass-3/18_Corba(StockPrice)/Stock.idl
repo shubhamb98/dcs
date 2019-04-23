@@ -1,0 +1,7 @@
+module StockApp
+{
+  interface Stock
+  {
+     string getStock();
+  };
+};

@@ -1,0 +1,16 @@
+$ idlj -fall Bank.idl
+
+$ javac ./*.java
+
+$ orbd -ORBInitialPort 1050&
+
+$ java StartServer -ORBInitialPort 1050 -ORBInitialHost localHost 
+
+
+
+
+
+
+
+
+$ java StartClient -ORBInitialPort 1050 -ORBInitialHost localHost
