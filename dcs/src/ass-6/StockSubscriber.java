@@ -16,7 +16,7 @@ public class StockSubscriber {
 		Connection connection = connectionFactory.createConnection();
 		connection.start();
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		Topic topic = session.createTopic("CL9");
+		Topic topic = session.createTopic("stocks");
 		MessageConsumer consumer = session.createConsumer(topic);
 		MessageListener listner = new MessageListener() {
 			public void onMessage(Message message) {
